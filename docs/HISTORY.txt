@@ -1,7 +1,9 @@
 Changelog
 =========
 
-1.0dev (unreleased)
--------------------
+1.0
+---
+
+- Created a configlet to add and remove twitter accounts [frapell]
 
 - Initial release
