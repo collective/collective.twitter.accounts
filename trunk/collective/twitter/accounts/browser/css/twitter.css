@@ -1,0 +1,8 @@
+/*
+ * CSS
+ */
+
+span.request_twitter_token {
+    cursor:pointer;
+    background: #CCC;
+}

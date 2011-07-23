@@ -1,0 +1,50 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+    <adapter factory=".controlpanel.TwitterControlPanelAdapter" />
+  
+     <browser:resourceDirectory
+        name="collective.twitter.accounts.icons"
+        directory="icons"
+        />
+
+     <browser:resourceDirectory
+        name="collective.twitter.accounts.js"
+        directory="js"
+        />
+
+     <browser:resourceDirectory
+        name="collective.twitter.accounts.css"
+        directory="css"
+        />
+      
+    <browser:page
+        name="twitter-controlpanel"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".controlpanel.TwitterControlPanel"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        name="validate-token"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".token.Validate"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        name="request-token"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".token.Request"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        name="remove-auth-account"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".controlpanel.RemoveAuthAccount"
+        permission="cmf.ManagePortal"
+        />
+        
+</configure>

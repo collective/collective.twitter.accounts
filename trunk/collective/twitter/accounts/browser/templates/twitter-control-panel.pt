@@ -1,0 +1,204 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xml:lang="en" lang="en"
+      tal:omit-tag=""
+      metal:define-macro="controlpanel"
+      i18n:domain="collective.twitter.accounts">
+
+<metal:block use-macro="context/prefs_main_template/macros/master">
+
+<!--<metal:styleslot fill-slot="style_slot" >   
+
+    <link rel="stylesheet" 
+          type="text/css" 
+          media="screen" 
+          href="++resource++collective.twitter.accounts.css/twitter.css" />
+
+</metal:styleslot>
+<metal:javascriptslot fill-slot="javascript_head_slot" >
+
+    <script type="text/javascript" 
+            src="++resource++collective.twitter.accounts.js/twitter.js"></script>
+
+</metal:javascriptslot>
+-->
+<body>
+<metal:main fill-slot="prefs_configlet_main">
+
+    <link rel="stylesheet" 
+          type="text/css" 
+          media="screen" 
+          href="++resource++collective.twitter.accounts.css/twitter.css" />
+
+    <script type="text/javascript" 
+            src="++resource++collective.twitter.accounts.js/twitter.js"></script>
+
+    <metal:form metal:define-macro="form">
+
+        <metal:block define-macro="header">
+
+            <dl tal:define="status view/status"
+                 tal:condition="status"
+                 class="portalMessage info">
+                <dt i18n:translate="">
+                    Info
+                </dt>
+                <dd tal:content="view/status" />
+            </dl>
+
+        </metal:block>
+
+            <a href=""
+               id="setup-link"
+               tal:attributes="href string:$portal_url/plone_control_panel"
+               i18n:translate="">
+                Site Setup
+            </a> &rsaquo;
+
+        <h1 class="documentFirstHeading"
+            i18n:translate=""
+            tal:condition="view/label"
+            tal:content="view/label"
+            metal:define-slot="heading">
+            Do something
+        </h1>
+
+        <div class="documentDescription" i18n:translate=""
+           tal:condition="view/description"
+           tal:content="view/description">
+            Description
+        </div>
+
+        <div id="content-core">
+            
+            <form action="."
+                  metal:define-macro="master"
+                  tal:attributes="action request/URL;
+                                  class python: default"
+                  method="post"
+                  class="edit-form enableUnloadProtection"
+                  enctype="multipart/form-data"
+                  id="zc.page.browser_form">
+
+                <input type="hidden"
+                       name="fieldset.current"
+                       value=""
+                       tal:attributes="value request/fieldset.current | string:" />
+
+                <div metal:define-slot="extra_info" tal:replace="nothing">
+                </div>
+
+                <fieldset tal:define="accounts view/getAccounts">
+                    <legend tal:content="string:Accounts"
+                            i18n:translate="">Accounts</legend>
+                            
+                    <p tal:condition="not: accounts">
+                     There are no accounts configured yet.
+                    </p>
+                    
+                    <tal:block repeat="account accounts">
+                     <p tal:attributes="id string:auth-account-${account}">
+                        <img src="++resource++collective.twitter.accounts.icons/remove.png"
+                             width="12"
+                             height="12"
+                             tal:attributes="onclick string:removeAuthAccount('${account}')"/>
+                        <span tal:content="account"/>
+                     </p>
+                    </tal:block>
+                </fieldset>
+                
+                <fieldset>
+                    <legend tal:define="form_name view/form_name|nothing"
+                            tal:condition="form_name"
+                            tal:content="form_name"
+                            i18n:translate="">Form name</legend>
+                    <tal:block tal:repeat="widget view/widgets">
+
+                        <div class="field"
+                             tal:condition="python: widget.name not in
+                                                    ['form.oauth_token',
+                                                     'form.oauth_token_secret']"
+                             tal:define="description widget/hint;
+                                         error widget/error"
+                             tal:attributes="name widget/name;
+                                             class python:'field'+(error and ' error' or '')">
+
+                            <tal:request_token condition="python: widget.name == 'form.pincode'">
+                                <span class="request_twitter_token"
+                                     onclick="requestTwitterToken()">
+                                    Request twitter token
+                                </span>
+                                <div id="token_url_placeholder">
+                                </div>
+                            </tal:request_token>
+                            <label i18n:translate=""
+                                   tal:attributes="for widget/name"
+                                   tal:content="widget/label">
+                                label
+                            </label>
+
+                            <span class="fieldRequired"
+                                  title="Required"
+                                  i18n:attributes="title title_required;"
+                                  i18n:translate="label_required"
+                                  tal:condition="widget/required">
+                                (Required)
+                            </span>
+
+                            <div class="formHelp"
+                                 i18n:translate=""
+                                 tal:content="description"
+                                 tal:condition="description">
+                                field description
+                            </div>
+
+                            <div tal:condition="error"
+                                 tal:content="structure error">
+                                The Error
+                            </div>
+
+                            <div class="widget" tal:content="structure widget">
+                                <input type="text" />
+                            </div>
+                        </div>
+
+                    </tal:block>
+
+                </fieldset>
+
+                <input type="hidden" id="form.oauth_token" name="form.oauth_token" />
+                <input type="hidden" id="form.oauth_token_secret" name="form.oauth_token_secret" />
+                
+                <metal:block define-slot="above_buttons" />
+
+                <div class="visualClear"><!-- --></div>
+
+                <div id="actionsView" class="formControls">
+                    <span class="actionButtons"
+                          tal:condition="view/availableActions"
+                          metal:define-slot="bottom_buttons">
+                        <input tal:repeat="action view/actions"
+                               tal:replace="structure action/render" />
+                    </span>
+                </div>
+
+                <input tal:replace="structure context/@@authenticator/authenticator" />
+
+            </form>
+
+            <script type="text/javascript"
+                tal:define="extra_script view/extra_script | nothing"
+                tal:condition="extra_script"
+                tal:content="structure extra_script">
+            </script>
+        </div>
+
+    </metal:form>
+
+</metal:main>
+</body>
+
+</metal:block>
+</html>
