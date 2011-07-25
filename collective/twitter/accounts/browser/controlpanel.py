@@ -21,6 +21,8 @@ from interfaces import ITwitterControlPanel
 from collective.twitter.accounts import MessageFactory as _
 from plone.registry.interfaces import IRegistry
 
+from collective.twitter.accounts.config import PLONE_CONSUMER_KEY
+from collective.twitter.accounts.config import PLONE_CONSUMER_SECRET
 
 from zope.component import getMultiAdapter
 
@@ -102,10 +104,13 @@ class TwitterControlPanel(FieldsetsEditForm):
         oauth_token = data['oauth_token']
         oauth_token_secret = data['oauth_token_secret']
         pincode = data['pincode']
- 
-        if ((consumer == "Plone default" or (consumer == "Custom" and
-                                             consumer_key and
-                                             consumer_secret)) and
+        
+        if consumer == "Plone default":
+            consumer_key = PLONE_CONSUMER_KEY
+            consumer_secret = PLONE_CONSUMER_SECRET
+            
+        if (consumer_key and
+            consumer_secret and
             oauth_token and
             oauth_token_secret and
             pincode):
@@ -113,16 +118,20 @@ class TwitterControlPanel(FieldsetsEditForm):
             validate_token = getMultiAdapter((self.context, self.request), 
                                              name='validate-token')
         
-            username = validate_token(consumer, consumer_key, consumer_secret, 
-                                      oauth_token, oauth_token_secret, pincode)
+            access_token = validate_token(consumer, consumer_key, consumer_secret, 
+                                          oauth_token, oauth_token_secret, pincode)
             
-            if username:
+            if access_token:
                 
                 registry = getUtility(IRegistry)
                 accounts = registry['collective.twitter.accounts']
                 if not accounts:
                     accounts = {}
-                    
+                
+                username = access_token['screen_name']
+                oauth_token = access_token['oauth_token']
+                oauth_token_secret = access_token['oauth_token_secret']
+                
                 accounts[username] = \
                                      {'consumer_key' : consumer_key, 
                                       'consumer_secret' : consumer_secret, 

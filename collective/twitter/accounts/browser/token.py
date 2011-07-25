@@ -47,8 +47,7 @@ class Validate(BrowserView):
             return False
         else:
             #Success
-            username_start = content.index("screen_name") + 12
-            return content[username_start:]
+            return access_token
 
 
 class Request(BrowserView):
