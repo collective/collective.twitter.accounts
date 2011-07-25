@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0'
+version = '1.0.0'
 
 setup(name='collective.twitter.accounts',
       version=version,
@@ -15,9 +15,9 @@ setup(name='collective.twitter.accounts',
         "Programming Language :: Python",
         ],
       keywords='',
-      author='',
-      author_email='',
-      url='http://svn.plone.org/svn/collective/',
+      author='Franco Pellegrini',
+      author_email='frapell@menttes.com',
+      url='http://svn.plone.org/svn/collective/collective.twitter.accounts',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['collective', 'collective.twitter'],
