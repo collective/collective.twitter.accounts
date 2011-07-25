@@ -3,12 +3,13 @@
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-    i18n_domain="collective.twitter">
+    i18n_domain="collective.twitter.accounts">
 
   <include package="plone.app.registry" />
 
   <five:registerPackage package="." initialize=".initialize" />
 
+  <i18n:registerTranslations directory="locales" />
 
   <include package=".browser" />
 

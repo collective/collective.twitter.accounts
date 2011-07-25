@@ -9,6 +9,7 @@ from plone.fieldsets.form import FieldsetsEditForm
 from zope.component import adapts
 from zope.interface import implements
 from zope.interface import Interface
+from zope.interface import alsoProvides
 
 from Products.CMFDefault.formlib.schema import SchemaAdapterBase
 from Products.CMFPlone.interfaces import IPloneSiteRoot
@@ -26,7 +27,26 @@ from collective.twitter.accounts.config import PLONE_CONSUMER_SECRET
 
 from zope.component import getMultiAdapter
 
-consumer_vocabulary = SimpleVocabulary.fromValues(["Plone default", "Custom"])
+from zope.schema.interfaces import IContextSourceBinder
+from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+
+consumer_vocabulary = SimpleVocabulary.fromValues([_(u"Plone default"), _(u"Custom")])
+
+def make_terms(items):
+    """ Create zope.schema terms for vocab from tuples """
+    terms = [ SimpleTerm(value=pair[0], token=pair[0], title=pair[1]) for pair in items ]
+    return terms
+
+def TwitterApplications(context):
+
+    app_list = [("Plone default", _(u"Plone default")), 
+                ("Custom", _(u"Custom"))]
+
+
+    return SimpleVocabulary(make_terms(app_list))
+
+
+alsoProvides(TwitterApplications, IContextSourceBinder)
 
 class ITwitterFieldSchema(Interface):
     """ Twitter Config """
@@ -37,7 +57,7 @@ class ITwitterFieldSchema(Interface):
                                             "dev.twitter.com)"),
                              required=True,
                              default="Plone default",
-                             vocabulary=consumer_vocabulary)
+                             source=TwitterApplications)
 
     consumer_key = schema.TextLine(title=_(u'Consumer Key'),
                                    description=_(u"Consumer key for your "
@@ -87,6 +107,7 @@ class TwitterControlPanel(FieldsetsEditForm):
     description = _("""Lets you configure several twitter accounts""")
     form_name = _("Twitter setup")
     form_fields = form.FormFields(ITwitterFieldSchema)
+    request_twitter_token = _(u"Request twitter token")
             
         
     def getAccounts(self):

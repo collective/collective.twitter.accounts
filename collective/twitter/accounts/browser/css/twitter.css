@@ -3,6 +3,8 @@
  */
 
 span.request_twitter_token {
+    border: 1px solid black;
+    padding: 3px 5px;
     cursor:pointer;
     background: #CCC;
 }

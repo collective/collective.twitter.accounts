@@ -5,7 +5,7 @@
       xml:lang="en" lang="en"
       tal:omit-tag=""
       metal:define-macro="controlpanel"
-      i18n:domain="collective.twitter.accounts">
+      i18n:domain="plone">
 
 <metal:block use-macro="context/prefs_main_template/macros/master">
 
@@ -127,9 +127,9 @@
 
                             <tal:request_token condition="python: widget.name == 'form.pincode'">
                                 <span class="request_twitter_token"
-                                     onclick="requestTwitterToken()">
-                                    Request twitter token
-                                </span>
+                                      onclick="requestTwitterToken()"
+                                      tal:content="view/request_twitter_token"
+                                      i18n:translate="" />
                                 <div id="token_url_placeholder">
                                 </div>
                             </tal:request_token>

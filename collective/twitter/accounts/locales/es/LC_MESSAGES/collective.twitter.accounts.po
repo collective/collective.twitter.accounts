@@ -1,0 +1,96 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# Franco Pellegrini, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2011-07-25 23:26+0000\n"
+"PO-Revision-Date: 2011-07-25 20:26-0300\n"
+"Last-Translator: Franco Pellegrini\n"
+"Language-Team: Spanish <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.twitter.accounts\n"
+"Language: es\n"
+"X-Generator: Lokalize 1.2\n"
+
+#: ../browser/controlpanel.py:53
+msgid "Application"
+msgstr "Aplicación"
+
+#: ../browser/controlpanel.py:54
+msgid ""
+"Choose to use Plone's default tweet application or your own (you'll need to "
+"register one in dev.twitter.com)"
+msgstr ""
+"Elija entre usar la aplicación predeterminada de Plone o una propia (Necesita "
+"registrarla en dev.twitter.com)"
+
+#: ../browser/controlpanel.py:62
+msgid "Consumer Key"
+msgstr "Consumer Key"
+
+#: ../browser/controlpanel.py:68
+msgid "Consumer Secret"
+msgstr "Consumer Secret"
+
+#: ../browser/controlpanel.py:63
+msgid ""
+"Consumer key for your application. Not used if \"Plone default\" chosen."
+msgstr ""
+"\"Consumer key\" para su aplicación. No se utiliza si se selecciona la "
+"aplicación predeterminada de Plone."
+
+#: ../browser/controlpanel.py:69
+msgid ""
+"Consumer secret for your application. Not used if \"Plone default\" chosen."
+msgstr ""
+"\"Consumer key\" para su aplicación. No se utiliza si se selecciona la "
+"aplicación predeterminada de Plone."
+
+#: ../browser/controlpanel.py:166
+msgid "Could not authorize. Perhaps wrong token provided."
+msgstr "No se pudo autorizar. Quizás se especificó un token incorrecto."
+
+#: ../browser/controlpanel.py:33
+msgid "Custom"
+msgstr "Propia"
+
+#: ../browser/controlpanel.py:107
+msgid "Lets you configure several twitter accounts"
+msgstr "Le permite configurar diversas cuentas Twitter"
+
+#: ../browser/controlpanel.py:168
+msgid "Missing data."
+msgstr "Faltan datos."
+
+#: ../browser/controlpanel.py:33
+msgid "Plone default"
+msgstr "Predeterminada de Plone"
+
+#: ../browser/controlpanel.py:80
+msgid "Security token"
+msgstr "Token de seguridad"
+
+#: ../browser/controlpanel.py:79
+msgid "Token"
+msgstr "Token"
+
+#: ../browser/controlpanel.py:163
+msgid "Twitter account succesfully authorized."
+msgstr "Cuenta Twitter autenticada satisfactoriamente."
+
+#: ../browser/controlpanel.py:106
+msgid "Twitter setup"
+msgstr "Configuración Twitter"
+
+#. Default: "Add"
+#: ../browser/controlpanel.py:118
+msgid "label_add"
+msgstr "Agregar"
+
+
