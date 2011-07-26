@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2011-07-25 23:26+0000\n"
-"PO-Revision-Date: 2011-07-25 20:26-0300\n"
+"POT-Creation-Date: 2011-07-26 00:10+0000\n"
+"PO-Revision-Date: 2011-07-25 21:11-0300\n"
 "Last-Translator: Franco Pellegrini\n"
 "Language-Team: Spanish <>\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgstr ""
 "\"Consumer key\" para su aplicación. No se utiliza si se selecciona la "
 "aplicación predeterminada de Plone."
 
-#: ../browser/controlpanel.py:166
+#: ../browser/controlpanel.py:167
 msgid "Could not authorize. Perhaps wrong token provided."
 msgstr "No se pudo autorizar. Quizás se especificó un token incorrecto."
 
@@ -64,13 +64,17 @@ msgstr "Propia"
 msgid "Lets you configure several twitter accounts"
 msgstr "Le permite configurar diversas cuentas Twitter"
 
-#: ../browser/controlpanel.py:168
+#: ../browser/controlpanel.py:169
 msgid "Missing data."
 msgstr "Faltan datos."
 
 #: ../browser/controlpanel.py:33
 msgid "Plone default"
 msgstr "Predeterminada de Plone"
+
+#: ../browser/controlpanel.py:110
+msgid "Request twitter token"
+msgstr "Pedir token de Twitter"
 
 #: ../browser/controlpanel.py:80
 msgid "Security token"
@@ -80,7 +84,7 @@ msgstr "Token de seguridad"
 msgid "Token"
 msgstr "Token"
 
-#: ../browser/controlpanel.py:163
+#: ../browser/controlpanel.py:164
 msgid "Twitter account succesfully authorized."
 msgstr "Cuenta Twitter autenticada satisfactoriamente."
 
@@ -89,7 +93,7 @@ msgid "Twitter setup"
 msgstr "Configuración Twitter"
 
 #. Default: "Add"
-#: ../browser/controlpanel.py:118
+#: ../browser/controlpanel.py:119
 msgid "label_add"
 msgstr "Agregar"
 

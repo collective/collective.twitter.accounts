@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-07-25 23:26+0000\n"
+"POT-Creation-Date: 2011-07-26 00:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Consumer secret for your application. Not used if "Plone default" chosen."
 msgstr ""
 
-#: ../browser/controlpanel.py:166
+#: ../browser/controlpanel.py:167
 msgid "Could not authorize. Perhaps wrong token provided."
 msgstr ""
 
@@ -53,12 +53,16 @@ msgstr ""
 msgid "Lets you configure several twitter accounts"
 msgstr ""
 
-#: ../browser/controlpanel.py:168
+#: ../browser/controlpanel.py:169
 msgid "Missing data."
 msgstr ""
 
 #: ../browser/controlpanel.py:33
 msgid "Plone default"
+msgstr ""
+
+#: ../browser/controlpanel.py:110
+msgid "Request twitter token"
 msgstr ""
 
 #: ../browser/controlpanel.py:80
@@ -69,7 +73,7 @@ msgstr ""
 msgid "Token"
 msgstr ""
 
-#: ../browser/controlpanel.py:163
+#: ../browser/controlpanel.py:164
 msgid "Twitter account succesfully authorized."
 msgstr ""
 
@@ -78,7 +82,7 @@ msgid "Twitter setup"
 msgstr ""
 
 #. Default: "Add"
-#: ../browser/controlpanel.py:118
+#: ../browser/controlpanel.py:119
 msgid "label_add"
 msgstr ""
 
