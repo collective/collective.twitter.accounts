@@ -32,4 +32,6 @@ Actually posting or getting to/from Twitter
 ===========================================
 
 This product just saves the needed data in order to post tweets or read them.
-You'll need additional products in order to do so.
+You'll need additional products in order to do so, for example http://pypi.python.org/pypi/collective.twitter.action
+
+

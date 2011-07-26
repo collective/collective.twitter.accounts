@@ -1,8 +1,13 @@
 Changelog
 =========
 
-1.0
----
+1.0.1
+-----
+
+- Added spanish internationalization [frapell]
+
+1.0.0
+-----
 
 - Created a configlet to add and remove twitter accounts [frapell]
 
