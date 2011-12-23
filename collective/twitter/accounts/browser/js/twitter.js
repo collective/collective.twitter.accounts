@@ -7,38 +7,40 @@ function removeAuthAccount(name){
 
 function requestTwitterToken() {
     
-    var consumer = document.getElementById('form.consumer').value;
-    var consumer_key = document.getElementById('form.consumer_key').value;        
-    var consumer_secret = document.getElementById('form.consumer_secret').value;
+    var consumer = $('#form\\.consumer').val();
+    var consumer_key = $('#form\\.consumer_key').val();        
+    var consumer_secret = $('#form\\.consumer_secret').val();
     
-    jQuery.get('@@request-token',
-                {'consumer':consumer,
-                 'consumer_key':consumer_key,
-                 'consumer_secret':consumer_secret},
-                function(results){
+    $.ajax({
+        url:'@@request-token',
+        data:{
+            'consumer':consumer,
+            'consumer_key':consumer_key,
+            'consumer_secret':consumer_secret
+        },
+        success: function(results){
+            var div = $('#token_url_placeholder');
+            div.html('');
 
-                    var div = $('#token_url_placeholder');
-                    div.html('');
-                    if (results){
-                        var split = results.split("&");
-                        var a = $('<a></a>');
-                        a.attr('href', split[0]);
-                        a.attr('target', '_blank');
-                        a.html('Allow permission to your account');
-    
-                        div.append(a);
-                        document.getElementById("form.oauth_token").value = split[1];
-                        document.getElementById("form.oauth_token_secret").value = split[2];
-                    }
-                    else{
-                        var p = $('<p></p>');
-                        p.html('Invalid "consumer key" and "consumer secret" provided');
-    
-                        div.append(p);
-                        document.getElementById("form.oauth_token").value = "";
-                        document.getElementById("form.oauth_token_secret").value = "";
-                    }
-                    
-                });
+            if (results){
+                var split = results.split("&");
+                var a = $('<a/>').attr({
+                    'href': split[0],
+                    'target': '_blank'
+                    }).html('Allow permission to your account');
 
+                div.append(a);
+                $("#form\\.oauth_token").val(split[1]);
+                $("#form\\.oauth_token_secret").val(split[2]);
+            }
+            else{
+                var p = $('<p/>');
+                p.html('Invalid "consumer key" and "consumer secret" provided');
+
+                div.append(p);
+                $("#form\\.oauth_token").val("");
+                $("#form\\.oauth_token_secret").val("");
+            } 
+        }
+    });
 }

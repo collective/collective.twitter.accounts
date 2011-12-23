@@ -122,8 +122,7 @@
                                                      'form.oauth_token_secret']"
                              tal:define="description widget/hint;
                                          error widget/error"
-                             tal:attributes="name widget/name;
-                                             class python:'field'+(error and ' error' or '')">
+                             tal:attributes="class python:'field'+(error and ' error' or '')">
 
                             <tal:request_token condition="python: widget.name == 'form.pincode'">
                                 <span class="request_twitter_token"
