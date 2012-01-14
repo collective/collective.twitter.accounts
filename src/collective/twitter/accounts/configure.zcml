@@ -21,6 +21,21 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:registerProfile
+      name="initial"
+      title="collective.twitter.accounts"
+      directory="profiles/initial"
+      description="Installs the collective.twitter.accounts package (Initial setup)"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="collective.twitter.accounts"
+      directory="profiles/uninstall"
+      description="Uninstall profile for the collective.twitter.accounts package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
  <!-- -*- extra stuff goes here -*- -->
 
 </configure>

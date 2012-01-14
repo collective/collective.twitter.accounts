@@ -5,6 +5,9 @@ dev
 ---
   * Moved to GitHub [frapell]
   * Refactored the packago to give its own dev/test buildout [frapell]
+  * Separated profiles for initial and default [frapell]
+  * Added an uninstall profile [frapell]
+  * Added some tests [frapell]
 
   
 1.0.1
