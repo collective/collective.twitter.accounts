@@ -1,14 +1,17 @@
 Changelog
 =========
 
+dev
+---
+  * Moved to GitHub [frapell]
+  * Refactored the packago to give its own dev/test buildout [frapell]
+
+  
 1.0.1
 -----
-
-- Added spanish internationalization [frapell]
+  * Added spanish internationalization [frapell]
 
 1.0.0
 -----
-
-- Created a configlet to add and remove twitter accounts [frapell]
-
-- Initial release
+  * Created a configlet to add and remove twitter accounts [frapell]
+  * Initial release

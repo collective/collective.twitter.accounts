@@ -16,10 +16,11 @@ setup(name='collective.twitter.accounts',
         ],
       keywords='',
       author='Franco Pellegrini',
-      author_email='frapell@menttes.com',
-      url='http://svn.plone.org/svn/collective/collective.twitter.accounts',
+      author_email='frapell@gmail.com',
+      url='https://github.com/collective/collective.twitter.accounts',
       license='GPL',
-      packages=find_packages(exclude=['ez_setup']),
+      packages=find_packages('src'),
+      package_dir={'': 'src'},
       namespace_packages=['collective', 'collective.twitter'],
       include_package_data=True,
       zip_safe=False,
@@ -29,6 +30,9 @@ setup(name='collective.twitter.accounts',
           'plone.app.registry',
           # -*- Extra requirements: -*-
       ],
+      extras_require={
+        'test': ['plone.app.testing'],
+        },
       entry_points="""
       # -*- Entry points: -*-
 
