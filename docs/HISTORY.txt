@@ -8,7 +8,7 @@ dev
   * Separated profiles for initial and default [frapell]
   * Added an uninstall profile [frapell]
   * Added some tests [frapell]
-
+  * Improved usability with a pop-up to authorize app [frapell]
   
 1.0.1
 -----
