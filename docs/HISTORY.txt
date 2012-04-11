@@ -4,7 +4,7 @@ Changelog
 1.0.3 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- Fixed distribution. [hvelarde]
 
 
 1.0.2 (2012-04-10)
