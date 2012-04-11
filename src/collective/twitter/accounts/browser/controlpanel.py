@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from Products.Five import BrowserView
 from zope.component import getUtility
 
@@ -39,21 +40,24 @@ logger = logging.getLogger(PROJECTNAME)
 
 consumer_vocabulary = SimpleVocabulary.fromValues([_(u"Plone default"), _(u"Custom")])
 
+
 def make_terms(items):
     """ Create zope.schema terms for vocab from tuples """
-    terms = [ SimpleTerm(value=pair[0], token=pair[0], title=pair[1]) for pair in items ]
+    terms = [SimpleTerm(value=pair[0], token=pair[0], title=pair[1])
+             for pair in items]
     return terms
+
 
 def TwitterApplications(context):
 
     app_list = [("Plone default", _(u"Plone default")),
                 ("Custom", _(u"Custom"))]
 
-
     return SimpleVocabulary(make_terms(app_list))
 
 
 alsoProvides(TwitterApplications, IContextSourceBinder)
+
 
 class ITwitterFieldSchema(Interface):
     """ Twitter Config """
@@ -79,7 +83,6 @@ class ITwitterFieldSchema(Interface):
                                       required=False)
 
     oauth_token = schema.TextLine(required=False)
-
 
     oauth_token_secret = schema.TextLine(required=False)
 
@@ -115,7 +118,6 @@ class TwitterControlPanel(FieldsetsEditForm):
     form_name = _("Twitter setup")
     form_fields = form.FormFields(ITwitterFieldSchema)
     request_twitter_token = _(u"Request twitter token")
-
 
     def getAccounts(self):
         registry = getUtility(IRegistry)
@@ -161,16 +163,16 @@ class TwitterControlPanel(FieldsetsEditForm):
                 oauth_token_secret = access_token['oauth_token_secret']
 
                 accounts[username] = \
-                                     {'consumer_key' : consumer_key,
-                                      'consumer_secret' : consumer_secret,
-                                      'oauth_token' : oauth_token,
-                                      'oauth_token_secret' : oauth_token_secret}
+                                     {'consumer_key': consumer_key,
+                                      'consumer_secret': consumer_secret,
+                                      'oauth_token': oauth_token,
+                                      'oauth_token_secret': oauth_token_secret}
 
                 registry['collective.twitter.accounts'] = accounts
 
                 logger.info("Account added succesfully to the registry")
 
-                logger.info("Token: %s"%access_token)
+                logger.info("Token: %s" % access_token)
                 self.status = _("Twitter account succesfully authorized.")
 
             else:
@@ -178,6 +180,7 @@ class TwitterControlPanel(FieldsetsEditForm):
                 self.status = _("Could not authorize. Perhaps wrong token provided.")
         else:
             self.status = _("Missing data.")
+
 
 class RemoveAuthAccount(BrowserView):
 
@@ -191,4 +194,3 @@ class RemoveAuthAccount(BrowserView):
             del accounts[account_name]
         except:
             pass
-
