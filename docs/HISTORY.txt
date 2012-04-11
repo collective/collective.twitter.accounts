@@ -4,6 +4,10 @@ Changelog
 1.0.2 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
+- Updated tests. [hvelarde]
+- PEP8/Pyflakes. [hvelarde]
+- Updated documentation. [hvelarde]
+- Updated package classifiers. [hvelarde]
 - Moved to GitHub. [frapell]
 - Refactored the package to give its own dev/test buildout. [frapell]
 - Separated profiles for initial and default. [frapell]
@@ -15,7 +19,7 @@ Changelog
 1.0.1 (2011-07-26)
 ^^^^^^^^^^^^^^^^^^
 
-- Added spanish internationalization [frapell]
+- Added Spanish internationalization. [frapell]
 
 
 1.0.0 (2011-07-25)
