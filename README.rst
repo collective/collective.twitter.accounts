@@ -11,6 +11,25 @@ This product allows you to add Twitter_ accounts to a Plone site.
 
 It uses oAuth authentication.
 
+Mostly Harmless
+---------------
+
+.. image:: https://secure.travis-ci.org/collective/collective.twitter.accounts.png?branch=master
+    :alt: Travis CI badge
+    :target: http://travis-ci.org/collective/collective.twitter.accounts
+
+.. image:: https://coveralls.io/repos/collective/collective.twitter.accounts/badge.png?branch=master
+    :alt: Coveralls badge
+    :target: https://coveralls.io/r/collective/collective.twitter.accounts
+
+.. image:: https://pypip.in/d/collective.twitter.accounts/badge.png
+    :target: https://pypi.python.org/pypi/collective.twitter.accounts/
+    :alt: Downloads
+
+Got an idea? Found a bug? Let us know by `opening a support ticket`_.
+
+.. _`opening a support ticket`: https://github.com/collective/collective.twitter.accounts/issues
+
 Usage
 -----
 
