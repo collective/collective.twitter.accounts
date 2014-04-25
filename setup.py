@@ -40,6 +40,7 @@ setup(name='collective.twitter.accounts',
         'setuptools',
         'python-twitter',
         'plone.app.registry',
+        'oauth2',
         ],
       extras_require={
         'test': ['plone.app.testing'],
