@@ -5,4 +5,6 @@ Contributors
 
 * Héctor Velarde (hector.velarde@gmail.com)
 
+* Rodrigo Ferreira de Souza (rodfersou@gmail.com)
+
 Development sponsored by Menttes.
